@@ -15,7 +15,9 @@
     </table>
     <div class="action">
       <%= button_to 'Empty cart', cart, method: :delete, data: {confirm: 'Are you sure?'}, remote: true %>
-      <%= button_to 'Check out', new_order_path, method: :get, class: "checkout" %>
+      <% unless @order %>
+        <%= button_to 'Check out', new_order_path, method: :get, class: "checkout" %>
+      <% end %>
     </div>
   </article>
 <% end %>

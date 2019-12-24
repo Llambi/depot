@@ -8,6 +8,16 @@
 #---
 # encoding: utf-8
 LineItem.delete_all
+
+Order.delete_all
+
+Cart.delete_all
+
+PaymentType.delete_all
+PaymentType.create!(kind:"Check")
+PaymentType.create!(kind:"Credit card")
+PaymentType.create!(kind:"Purchase orde")
+
 Product.delete_all
 Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap',
                 description:
