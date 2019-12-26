@@ -26,13 +26,7 @@
     <%= form.email_field :email, id: :order_email, size: 40 %>
   </div>
 
-  <!--  <div class="field">-->
-  <%#= form.label :payment_type_id %>
-  <%#= form.collection_select :payment_type_id, PaymentType.all, :id, :kind %>
-  <!--  </div>-->
-
-  <!--  <div id='payment-type-component'></div>-->
-  <%= react_component("PaymentTypeComponent", {props: PaymentType.all}) %>
+  <%= react_component("PaymentTypeSelector", {options: PaymentType.all}) %>
 
   <%= form.submit 'Place Order' %>
   </div>

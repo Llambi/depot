@@ -1,6 +1,5 @@
 import React from 'react'
 
-import NoPaymentType from './NoPaymentType'
 import CreditCardPaymentType from './CreditCardPaymentType'
 import CheckPaymentType from './CheckPaymentType'
 import PurchaseOrderPaymentType from './PurchaseOrderPaymentType'
@@ -10,12 +9,16 @@ class PaymentTypeSelector extends React.Component {
     constructor(props) {
         super(props);
         this.onPaymentTypeSelected = this.onPaymentTypeSelected.bind(this)
-        this.state = {selectedPaymentType: null}
+        this.state = {selectedPaymentType: null};
+        this.options = this.generateSelector();
+    }
+
+    generateSelector() {
+        return this.props.options.map((opt) => <option value={opt.id}>{opt.kind}</option>)
     }
 
     onPaymentTypeSelected(event) {
-        this.setState({ selectedPaymentType: event.target.value });
-        console.log(this.props)
+        this.setState({selectedPaymentType: event.target.options[event.target.selectedIndex].text});
     }
 
     render() {
@@ -31,10 +34,8 @@ class PaymentTypeSelector extends React.Component {
             <div>
                 <div className="field">
                     <label htmlFor="order_payment_type_id">Pay type</label>
-                    <select onChange={this.onPaymentTypeSelected} id="payment_type_id" name="order[payment_type_id]">
-                        <option value="Check">Check</option>
-                        <option value="Credit card">Credit card</option>
-                        <option value="Purchase order">Purchase order</option>
+                    <select onChange={this.onPaymentTypeSelected} name="order[payment_type_id]">
+                        {this.options}
                     </select>
                 </div>
                 <PaymentTypeCustomComponent/>
