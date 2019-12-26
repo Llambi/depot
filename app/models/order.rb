@@ -15,7 +15,8 @@ class Order < ApplicationRecord
   private
 
   def valid_payment_type?
-    !payment_type.nil? && !PaymentType.find_by_kind(payment_type.kind).nil?
+    if PaymentType.find_by_kind(payment_type_id).nil?
+      errors.add(:base, 'Payment type not valid')
+    end
   end
-
 end

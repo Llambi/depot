@@ -14,9 +14,9 @@
       </tfoot>
     </table>
     <div class="action">
-      <%= button_to 'Empty cart', cart, method: :delete, data: {confirm: 'Are you sure?'}, remote: true %>
+      <%= button_to 'Empty cart', cart, method: :delete, data: {confirm: 'Are you sure?'}, title: "Empty", remote: true %>
       <% unless @order %>
-        <%= button_to 'Check out', new_order_path, method: :get, class: "checkout" %>
+        <%= button_to 'Check out', new_order_path, method: :get, class: "checkout", title: "Checkout" %>
       <% end %>
     </div>
   </article>
