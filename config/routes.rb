@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-
+  resources :payment_types
   resources :users
   resources :products do
     get :who_bought, on: :member
