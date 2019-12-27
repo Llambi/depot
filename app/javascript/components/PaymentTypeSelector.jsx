@@ -14,7 +14,9 @@ class PaymentTypeSelector extends React.Component {
     }
 
     generateSelector() {
-        return this.props.options.map((opt) => <option value={opt.id}>{opt.kind}</option>)
+        return this.props.options
+            .map((opt) =>
+                <option value={opt.id}>{I18n.t(`orders.form.pay_types.${opt.kind.toLowerCase().replace(" ", "_")}`)}</option>)
     }
 
     onPaymentTypeSelected(event) {
@@ -33,7 +35,7 @@ class PaymentTypeSelector extends React.Component {
         return (
             <div>
                 <div className="field">
-                    <label htmlFor="order_payment_type_id">Pay type</label>
+                    <label htmlFor="order_payment_type_id">{I18n.t("orders.form.pay_type")}</label>
                     <select onChange={this.onPaymentTypeSelected} name="order[payment_type_id]">
                         {this.options}
                     </select>

@@ -16,7 +16,7 @@ Cart.delete_all
 PaymentType.delete_all
 PaymentType.create!(kind:"Check")
 PaymentType.create!(kind:"Credit card")
-PaymentType.create!(kind:"Purchase orde")
+PaymentType.create!(kind:"Purchase order")
 
 Product.delete_all
 Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap',

@@ -8,6 +8,10 @@
                           'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application' %>
+  <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+  </script>
 </head>
 
 <body>
@@ -23,10 +27,10 @@
     <span style="color: #ffffff"><%= Time.now %></span>
     <span style="color: #ffffff">Visitas: <%= !@counter.nil? && @counter > 5 ? @counter : " " %></span>
     <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/questions">Questions</a></li>
-      <li><a href="/news">News</a></li>
-      <li><a href="/contact">Contact</a></li>
+      <li><a href="/"><%= t('.home') %></a></li>
+      <li><a href="/<%= session[:locale] %>/questions"><%= t('.questions') %></a></li>
+      <li><a href="/<%= session[:locale] %>/news"><%= t('.news') %></a></li>
+      <li><a href="/<%= session[:locale] %>/contact"><%= t('.contact') %></a></li>
     </ul>
     <% if session[:user_id] %>
       <nav class="logged_in_nav">
