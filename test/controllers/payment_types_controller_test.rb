@@ -15,14 +15,6 @@ class PaymentTypesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create payment_type" do
-    assert_difference('PaymentType.count') do
-      post payment_types_url, params: { payment_type: { kind: @payment_type.kind } }
-    end
-
-    assert_redirected_to payment_type_url(PaymentType.last)
-  end
-
   test "should show payment_type" do
     get payment_type_url(@payment_type)
     assert_response :success
