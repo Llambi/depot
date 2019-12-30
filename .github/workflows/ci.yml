@@ -14,12 +14,6 @@ jobs:
           curl -sL https://deb.nodesource.com/setup_12.x | bash -
           apt install -y yarn nodejs
           npm install chromedriver        
-      - name: Install chrome
-        run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
-          echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
-          apt update -y
-          apt install -y google-chrome-stable
       - name: Pull repository
         uses: actions/checkout@v1
         with:
