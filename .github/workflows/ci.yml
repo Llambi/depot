@@ -20,6 +20,10 @@ jobs:
           echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' | tee /etc/apt/sources.list.d/google-chrome.list
           apt update -y
           apt install -y google-chrome-stable
+      - name: Pull repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - name: Build
         run: |
           gem install bundler
