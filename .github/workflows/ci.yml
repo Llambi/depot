@@ -27,6 +27,8 @@ jobs:
           bin/rails yarn:install db:setup assets:precompile
       - name: Run test
         run: |
+          gem install bundler
+          bundle install
           bin/rails test
       - name: Run system test
         run: |
