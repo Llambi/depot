@@ -22,7 +22,7 @@ jobs:
           apt install -y google-chrome-stable
       - name: Build
         run: |
-          ls -al ..
+          ls -al depot
           bundle exec
           bin/rails yarn:install db:setup assets:precompile
       - name: Run test
